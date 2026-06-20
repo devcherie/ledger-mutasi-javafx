@@ -60,37 +60,40 @@ Aplikasi ini dikembangkan sebagai proyek mata kuliah Pemrograman Berorientasi Ob
 
 ## Struktur Project
 
+```text
 src
-├── controller
-│ ├── LoginController.java
-│ ├── DashboardController.java
-│ ├── MutasiController.java
-│ └── LedgerController.java
-│
-├── model
-│ ├── User.java
-│ ├── Akun.java
-│ ├── Mutasi.java
-│ ├── Ledger.java
-│ └── DetailLedger.java
-│
-├── service
-│ ├── BackgroundService.java
-│ ├── DashboardService.java
-│ ├── MutasiService.java
-│ ├── LedgerService.java
-│ └── ExportTask.java
-│
-├── jdatabase
-│ └── DataBaseConnection.java
-│
-└── resources
-├── login.fxml
-├── dashboard.fxml
-├── mutasi.fxml
-└── ledger.fxml
-
----
+└── main
+    ├── java
+    │   └── com
+    │       ├── controller
+    │       │   ├── LoginController.java
+    │       │   ├── DashboardController.java
+    │       │   ├── MutasiController.java
+    │       │   └── LedgerController.java
+    │       │
+    │       ├── model
+    │       │   ├── User.java
+    │       │   ├── Akun.java
+    │       │   ├── Mutasi.java
+    │       │   ├── Ledger.java
+    │       │   └── DetailLedger.java
+    │       │
+    │       ├── service
+    │       │   ├── BackgroundService.java
+    │       │   ├── DashboardService.java
+    │       │   ├── MutasiService.java
+    │       │   ├── LedgerService.java
+    │       │   └── ExportTask.java
+    │       │
+    │       └── jdatabase
+    │           └── DataBaseConnection.java
+    │
+    └── resources
+        ├── login.fxml
+        ├── dashboard.fxml
+        ├── mutasi.fxml
+        └── ledger.fxml
+```
 
 ## Teknologi yang Digunakan
 
