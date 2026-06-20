@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1a99c6dd-4eba-4416-b41c-08d7ac0133b6" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="40" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="FxmlFile" />
+        <option value="JavaFXApplication" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="jreName" value="openjdk-26" />
+  </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3EXjGdZCpwZBHG7GxXbotDfLCtm" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.MainApp.executor": "Run",
+    "Application.com.example.ledger.ledgermutasiapp.HelloApplication.executor": "Run",
+    "Application.com.example.ledgermutasiapp.HelloApplication.executor": "Run",
+    "Application.com.ledger.ledgermutasiapp.HelloApplication.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/INTAN/IdeaProjects/JavaFX",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\INTAN\IdeaProjects\JavaFX\src\main\resources" />
+      <recent name="C:\Users\INTAN\IdeaProjects\JavaFX\target" />
+      <recent name="C:\Users\INTAN\IdeaProjects\JavaFX\src" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.com.example.ledgermutasiapp.HelloApplication">
+    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.HelloApplication" />
+      <module name="Baru" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="demo.Main" />
+      <module name="Baru" />
+      <option name="VM_PARAMETERS" value="--enable-native-access=javafx.graphics" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="modul6.MainApp" />
+      <module name="Baru" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.example.ledger.ledgermutasiapp.HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.ledger.ledgermutasiapp.HelloApplication" />
+      <module name="Baru" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.ledger.ledgermutasiapp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.ledger.ledgermutasiapp.HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ledger.ledgermutasiapp.HelloApplication" />
+      <module name="Baru" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ledger.ledgermutasiapp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="JavaFX" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="JavaFX" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.com.example.ledgermutasiapp.HelloApplication" />
+      <item itemvalue="Application.com.example.ledger.ledgermutasiapp.HelloApplication" />
+      <item itemvalue="Application.com.ledger.ledgermutasiapp.HelloApplication" />
+      <item itemvalue="Application.MainApp" />
+      <item itemvalue="Application.Main" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.com.example.ledgermutasiapp.HelloApplication" />
+        <item itemvalue="Application.com.example.ledger.ledgermutasiapp.HelloApplication" />
+        <item itemvalue="Application.com.ledger.ledgermutasiapp.HelloApplication" />
+        <item itemvalue="Application.MainApp" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1a99c6dd-4eba-4416-b41c-08d7ac0133b6" name="Changes" comment="" />
+      <created>1780331718806</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1780331718806</updated>
+      <workItem from="1780331719840" duration="974000" />
+      <workItem from="1780333483532" duration="1128000" />
+      <workItem from="1780334631174" duration="253000" />
+      <workItem from="1780334900734" duration="2592000" />
+      <workItem from="1780371064373" duration="5449000" />
+      <workItem from="1780478972749" duration="68000" />
+      <workItem from="1780931483641" duration="97000" />
+      <workItem from="1780931630128" duration="1670000" />
+      <workItem from="1780933341628" duration="3704000" />
+      <workItem from="1780968316661" duration="4425000" />
+      <workItem from="1781000782315" duration="676000" />
+      <workItem from="1781001824630" duration="4916000" />
+      <workItem from="1781448153842" duration="315000" />
+      <workItem from="1781950765376" duration="11871000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

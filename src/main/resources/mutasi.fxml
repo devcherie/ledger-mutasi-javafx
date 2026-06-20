@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.controller.MutasiController"
+            prefWidth="900"
+            prefHeight="600">
+
+    <!-- HEADER -->
+    <top>
+
+        <HBox spacing="20"
+              alignment="CENTER_LEFT"
+              style="-fx-background-color:#2E7D32;
+                     -fx-padding:20;">
+
+            <Button text="← Dashboard"
+                    onAction="#kembaliDashboard"/>
+
+            <Label text="FORM MUTASI"
+                   style="-fx-font-size:28;
+                          -fx-font-weight:bold;
+                          -fx-text-fill:white;"/>
+
+        </HBox>
+
+    </top>
+
+    <!-- ISI -->
+    <center>
+
+        <VBox spacing="15"
+              alignment="TOP_CENTER"
+              style="-fx-padding:30;">
+
+            <!-- NOTIFIKASI -->
+            <Label fx:id="lblNotif"
+                   visible="false"
+                   maxWidth="600"
+                   textFill="white"
+                   style="-fx-background-color:#4CAF50;
+                          -fx-padding:12;
+                          -fx-font-size:14;
+                          -fx-font-weight:bold;
+                          -fx-background-radius:5;"/>
+
+            <!-- CARD FORM -->
+            <GridPane hgap="15"
+                      vgap="15"
+                      maxWidth="600"
+                      style="-fx-background-color:white;
+                             -fx-padding:30;
+                             -fx-background-radius:10;
+                             -fx-border-radius:10;
+                             -fx-border-color:#DCDCDC;">
+
+                <Label text="Tanggal :"
+                       style="-fx-font-weight:bold;"
+                       GridPane.rowIndex="0"
+                       GridPane.columnIndex="0"/>
+
+                <DatePicker fx:id="dpTanggal"
+                            prefWidth="300"
+                            GridPane.rowIndex="0"
+                            GridPane.columnIndex="1"/>
+
+                <Label text="Akun Asal :"
+                       style="-fx-font-weight:bold;"
+                       GridPane.rowIndex="1"
+                       GridPane.columnIndex="0"/>
+
+                <ComboBox fx:id="cbAkunAsal"
+                          prefWidth="300"
+                          GridPane.rowIndex="1"
+                          GridPane.columnIndex="1"/>
+
+                <Label text="Akun Tujuan :"
+                       style="-fx-font-weight:bold;"
+                       GridPane.rowIndex="2"
+                       GridPane.columnIndex="0"/>
+
+                <ComboBox fx:id="cbAkunTujuan"
+                          prefWidth="300"
+                          GridPane.rowIndex="2"
+                          GridPane.columnIndex="1"/>
+
+                <Label text="Nominal :"
+                       style="-fx-font-weight:bold;"
+                       GridPane.rowIndex="3"
+                       GridPane.columnIndex="0"/>
+
+                <TextField fx:id="txtNominal"
+                           promptText="Masukkan Nominal"
+                           prefWidth="300"
+                           GridPane.rowIndex="3"
+                           GridPane.columnIndex="1"/>
+
+                <Label text="Keterangan :"
+                       style="-fx-font-weight:bold;"
+                       GridPane.rowIndex="4"
+                       GridPane.columnIndex="0"/>
+
+                <TextArea fx:id="txtKeterangan"
+                          promptText="Masukkan Keterangan"
+                          prefRowCount="4"
+                          prefWidth="300"
+                          GridPane.rowIndex="4"
+                          GridPane.columnIndex="1"/>
+
+                <HBox spacing="10"
+                      GridPane.rowIndex="5"
+                      GridPane.columnIndex="1">
+
+                    <Button text="💾 Simpan"
+                            onAction="#simpanMutasi"
+                            style="-fx-background-color:#4CAF50;
+                                   -fx-text-fill:white;
+                                   -fx-font-weight:bold;"/>
+
+                    <Button text="🔄 Reset"
+                            onAction="#resetForm"
+                            style="-fx-background-color:#F44336;
+                                   -fx-text-fill:white;
+                                   -fx-font-weight:bold;"/>
+
+                </HBox>
+
+            </GridPane>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>

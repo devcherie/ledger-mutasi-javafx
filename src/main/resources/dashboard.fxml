@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.controller.DashboardController">
+
+    <top>
+        <HBox spacing="20"
+              alignment="CENTER_LEFT"
+              style="-fx-background-color:#2E7D32;
+                     -fx-padding:15;">
+
+            <Label text="SISTEM LEDGER &amp; MUTASI"
+                   style="-fx-font-size:22;
+                          -fx-font-weight:bold;
+                          -fx-text-fill:white;"/>
+
+            <Pane HBox.hgrow="ALWAYS"/>
+
+            <Label text="Admin"
+                   style="-fx-text-fill:white;
+                          -fx-font-size:14;"/>
+        </HBox>
+    </top>
+
+    <left>
+
+        <VBox spacing="10"
+              prefWidth="200"
+              style="-fx-background-color:#F5F5F5;
+                     -fx-padding:15;">
+
+            <Button text="Dashboard"
+                    maxWidth="Infinity"/>
+
+            <Button text="Ledger"
+                    onAction="#bukaLedger"
+                    maxWidth="Infinity"/>
+
+            <Button text="Mutasi"
+                    onAction="#bukaMutasi"
+                    maxWidth="Infinity"/>
+
+            <Button text="Export CSV"
+                    onAction="#exportCsv"
+                    maxWidth="Infinity"/>
+
+            <Button text="Logout"
+                    onAction="#logout"
+                    maxWidth="Infinity"/>
+
+            <Button text="ℹ Tentang"
+                    onAction="#tentangAplikasi"/>
+
+        </VBox>
+
+    </left>
+
+    <center>
+
+        <VBox spacing="20"
+              alignment="CENTER">
+
+            <HBox spacing="20">
+
+                <VBox alignment="CENTER"
+                      prefWidth="200"
+                      prefHeight="120"
+                      style="-fx-background-color:#4CAF50;
+                             -fx-background-radius:10;">
+
+                    <Label text="Jumlah Akun"
+                           style="-fx-text-fill:white;"/>
+
+                    <Label fx:id="lblJumlahAkun"
+                           text="0"
+                           style="-fx-font-size:28;
+                                  -fx-font-weight:bold;
+                                  -fx-text-fill:white;"/>
+                </VBox>
+
+                <VBox alignment="CENTER"
+                      prefWidth="200"
+                      prefHeight="120"
+                      style="-fx-background-color:#2196F3;
+                             -fx-background-radius:10;">
+
+                    <Label text="Jumlah Mutasi"
+                           style="-fx-text-fill:white;"/>
+
+                    <Label fx:id="lblJumlahMutasi"
+                           text="0"
+                           style="-fx-font-size:28;
+                                  -fx-font-weight:bold;
+                                  -fx-text-fill:white;"/>
+                </VBox>
+
+            </HBox>
+
+            <HBox spacing="20">
+
+                <VBox alignment="CENTER"
+                      prefWidth="200"
+                      prefHeight="120"
+                      style="-fx-background-color:#FF9800;
+                             -fx-background-radius:10;">
+
+                    <Label text="Total Debit"
+                           style="-fx-text-fill:white;"/>
+
+                    <Label fx:id="lblTotalDebit"
+                           text="Rp 0"
+                           style="-fx-font-size:22;
+                                  -fx-font-weight:bold;
+                                  -fx-text-fill:white;"/>
+                </VBox>
+
+                <VBox alignment="CENTER"
+                      prefWidth="200"
+                      prefHeight="120"
+                      style="-fx-background-color:#E91E63;
+                             -fx-background-radius:10;">
+
+                    <Label text="Total Kredit"
+                           style="-fx-text-fill:white;"/>
+
+                    <Label fx:id="lblTotalKredit"
+                           text="Rp 0"
+                           style="-fx-font-size:22;
+                                  -fx-font-weight:bold;
+                                  -fx-text-fill:white;"/>
+                    <Label fx:id="lblJam"
+                           style="-fx-font-size:18;
+                           -fx-text-fill:white;
+                           -fx-font-weight:bold;"/>
+                </VBox>
+
+            </HBox>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.controller.LedgerController">
+
+    <top>
+
+        <VBox>
+
+            <HBox spacing="20"
+                  style="-fx-background-color:#1565C0;
+                         -fx-padding:20;">
+
+                <Button text="🏠 Dashboard"
+                        onAction="#kembaliDashboard"/>
+
+                <Label text="DATA LEDGER"
+                       style="-fx-font-size:28;
+                              -fx-font-weight:bold;
+                              -fx-text-fill:white;"/>
+            </HBox>
+
+        </VBox>
+
+    </top>
+
+    <center>
+
+        <VBox spacing="15"
+              style="-fx-padding:20;">
+
+            <HBox spacing="20">
+
+                <Label fx:id="lblTotalDebit"
+                       style="-fx-background-color:#4CAF50;
+                              -fx-text-fill:white;
+                              -fx-padding:15;
+                              -fx-font-weight:bold;"/>
+
+                <Label fx:id="lblTotalKredit"
+                       style="-fx-background-color:#F44336;
+                              -fx-text-fill:white;
+                              -fx-padding:15;
+                              -fx-font-weight:bold;"/>
+
+            </HBox>
+
+            <HBox spacing="10">
+
+                <TextField fx:id="txtCari"
+                           promptText="Cari Transaksi..."
+                           prefWidth="250"/>
+
+                <Button text="🔍 Cari"/>
+
+            </HBox>
+
+            <TableView fx:id="tableLedger"
+                       VBox.vgrow="ALWAYS">
+
+                <columns>
+
+                    <TableColumn fx:id="colTanggal"
+                                 text="Tanggal"
+                                 prefWidth="120"/>
+
+                    <TableColumn fx:id="colAkun"
+                                 text="Akun"
+                                 prefWidth="150"/>
+
+                    <TableColumn fx:id="colDebit"
+                                 text="Debit"
+                                 prefWidth="120"/>
+
+                    <TableColumn fx:id="colKredit"
+                                 text="Kredit"
+                                 prefWidth="120"/>
+
+                    <TableColumn fx:id="colKeterangan"
+                                 text="Keterangan"
+                                 prefWidth="250"/>
+
+                </columns>
+
+            </TableView>
+
+            <HBox spacing="10">
+
+                <Button text="🔄 Refresh"
+                        onAction="#refreshData"/>
+
+                <Button text="📤 Export CSV"
+                        onAction="#exportCsv"/>
+
+                <Button text="🔍 Cari"
+                        onAction="#cariData"/>
+
+            </HBox>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>
