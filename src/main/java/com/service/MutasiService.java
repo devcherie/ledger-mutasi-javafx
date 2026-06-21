@@ -2,12 +2,17 @@ package com.service;
 
 import com.jdatabase.DataBaseConnection;
 import com.model.Mutasi;
+import com.model.MutasiView;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MutasiService {
 
+    // ==========================
+    // SIMPAN MUTASI
+    // ==========================
     public boolean simpanMutasi(
             Mutasi mutasi) {
 
@@ -19,11 +24,11 @@ public class MutasiService {
 
         try {
 
-            Connection com =
+            Connection conn =
                     DataBaseConnection.getConnection();
 
             PreparedStatement ps =
-                    com.prepareStatement(sql);
+                    conn.prepareStatement(sql);
 
             ps.setString(
                     1,
@@ -59,10 +64,65 @@ public class MutasiService {
 
         } catch (Exception e) {
 
-            System.out.println("GAGAL INSERT DATA");
             e.printStackTrace();
 
             return false;
         }
+    }
+
+    // ==========================
+    // TAMPILKAN DATA MUTASI
+    // ==========================
+    public List<MutasiView> getAllMutasi() {
+
+        List<MutasiView> data =
+                new ArrayList<>();
+
+        try {
+
+            Connection conn =
+                    DataBaseConnection.getConnection();
+
+            String sql =
+                    """
+                    SELECT
+                        m.tanggal,
+                        a1.nama_akun AS akun_asal,
+                        a2.nama_akun AS akun_tujuan,
+                        m.nominal,
+                        m.keterangan
+                    FROM mutasi m
+                    JOIN akun a1
+                        ON m.akun_asal = a1.id_akun
+                    JOIN akun a2
+                        ON m.akun_tujuan = a2.id_akun
+                    ORDER BY m.id_mutasi DESC
+                    """;
+
+            Statement st =
+                    conn.createStatement();
+
+            ResultSet rs =
+                    st.executeQuery(sql);
+
+            while (rs.next()) {
+
+                data.add(
+                        new MutasiView(
+                                rs.getString("tanggal"),
+                                rs.getString("akun_asal"),
+                                rs.getString("akun_tujuan"),
+                                rs.getDouble("nominal"),
+                                rs.getString("keterangan")
+                        )
+                );
+            }
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
+
+        return data;
     }
 }

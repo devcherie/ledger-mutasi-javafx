@@ -44,6 +44,10 @@
                     onAction="#bukaMutasi"
                     maxWidth="Infinity"/>
 
+            <Button fx:id="btnMutasi"
+                    text="Data Mutasi"
+                    onAction="#bukaDataMutasi"/>
+
             <Button text="Export CSV"
                     onAction="#exportCsv"
                     maxWidth="Infinity"/>

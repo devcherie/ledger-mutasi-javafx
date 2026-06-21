@@ -1,5 +1,7 @@
 package com.controller;
 
+import java.sql.Connection;
+import java.sql.Date;
 import javafx.animation.PauseTransition;
 import javafx.util.Duration;
 import javafx.fxml.FXML;
@@ -7,6 +9,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import com.model.Mutasi;
+import com.service.MutasiService;
 
 public class MutasiController {
 
@@ -99,6 +103,8 @@ public class MutasiController {
     }
 
     @FXML
+
+
     public void simpanMutasi() {
 
         if (dpTanggal.getValue() == null
@@ -116,47 +122,105 @@ public class MutasiController {
 
         try {
 
-            Double.parseDouble(
-                    txtNominal.getText()
-            );
+            double nominal =
+                    Double.parseDouble(
+                            txtNominal.getText()
+                    );
+
+            int akunAsal;
+            int akunTujuan;
+
+            switch (cbAkunAsal.getValue()) {
+
+                case "Kas" -> akunAsal = 1;
+                case "Bank" -> akunAsal = 2;
+                case "Piutang" -> akunAsal = 3;
+                case "Pendapatan" -> akunAsal = 4;
+
+                default -> {
+                    tampilkanNotifikasiError(
+                            "Akun asal tidak valid"
+                    );
+                    return;
+                }
+            }
+
+            switch (cbAkunTujuan.getValue()) {
+
+                case "Kas" -> akunTujuan = 1;
+                case "Bank" -> akunTujuan = 2;
+                case "Piutang" -> akunTujuan = 3;
+                case "Pendapatan" -> akunTujuan = 4;
+
+                default -> {
+                    tampilkanNotifikasiError(
+                            "Akun tujuan tidak valid"
+                    );
+                    return;
+                }
+            }
+
+            Mutasi mutasi =
+                    new Mutasi(
+                            dpTanggal
+                                    .getValue()
+                                    .toString(),
+                            akunAsal,
+                            akunTujuan,
+                            nominal,
+                            txtKeterangan.getText(),
+                            1
+                    );
+
+            MutasiService service =
+                    new MutasiService();
+
+            boolean berhasil =
+                    service.simpanMutasi(
+                            mutasi
+                    );
+
+            if (berhasil) {
+
+                tampilkanNotifikasiSukses(
+                        "Transaksi berhasil disimpan"
+                );
+
+                resetForm();
+
+            } else {
+
+                if (akunAsal == akunTujuan) {
+
+                    tampilkanNotifikasiError(
+                            "Akun asal dan tujuan tidak boleh sama"
+                    );
+
+                    return;
+                }
+
+                tampilkanNotifikasiError(
+                        "Gagal menyimpan data"
+                );
+            }
 
         } catch (NumberFormatException e) {
 
             tampilkanNotifikasiError(
-                    "Nominal harus berupa angka."
+                    "Nominal harus berupa angka"
             );
 
-            return;
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+            tampilkanNotifikasiError(
+                    "Terjadi kesalahan sistem"
+            );
         }
 
-        String tanggal =
-                dpTanggal.getValue().toString();
-
-        String akunAsal =
-                cbAkunAsal.getValue();
-
-        String akunTujuan =
-                cbAkunTujuan.getValue();
-
-        String nominal =
-                txtNominal.getText();
-
-        String keterangan =
-                txtKeterangan.getText();
-
-        System.out.println("===== DATA MUTASI =====");
-        System.out.println("Tanggal     : " + tanggal);
-        System.out.println("Akun Asal   : " + akunAsal);
-        System.out.println("Akun Tujuan : " + akunTujuan);
-        System.out.println("Nominal     : " + nominal);
-        System.out.println("Keterangan  : " + keterangan);
-
-        tampilkanNotifikasiSukses(
-                "Transaksi berhasil disimpan"
-        );
-
-        resetForm();
     }
+
 
     @FXML
     public void resetForm() {

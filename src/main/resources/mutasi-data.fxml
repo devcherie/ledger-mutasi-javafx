@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.controller.MutasiDataController">
+
+    <top>
+
+        <HBox spacing="20"
+              style="-fx-background-color:#2E7D32;
+                     -fx-padding:20;">
+
+            <Button text="🏠 Dashboard"
+                    onAction="#kembaliDashboard"/>
+
+            <Label text="DATA MUTASI"
+                   style="-fx-font-size:28;
+                          -fx-font-weight:bold;
+                          -fx-text-fill:white;"/>
+
+        </HBox>
+
+    </top>
+
+    <center>
+
+        <TableView fx:id="tableMutasi">
+
+            <columns>
+
+                <TableColumn fx:id="colTanggal"
+                             text="Tanggal"
+                             prefWidth="120"/>
+
+                <TableColumn fx:id="colAkunAsal"
+                             text="Akun Asal"
+                             prefWidth="150"/>
+
+                <TableColumn fx:id="colAkunTujuan"
+                             text="Akun Tujuan"
+                             prefWidth="150"/>
+
+                <TableColumn fx:id="colNominal"
+                             text="Nominal"
+                             prefWidth="150"/>
+
+                <TableColumn fx:id="colKeterangan"
+                             text="Keterangan"
+                             prefWidth="300"/>
+
+            </columns>
+
+        </TableView>
+
+    </center>
+
+</BorderPane>

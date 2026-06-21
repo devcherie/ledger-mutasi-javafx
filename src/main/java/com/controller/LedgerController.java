@@ -1,18 +1,22 @@
 package com.controller;
 
 import com.model.Ledger;
+import com.service.LedgerService;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Alert;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+
+import java.text.NumberFormat;
+import java.util.Locale;
 
 public class LedgerController {
 
@@ -26,10 +30,10 @@ public class LedgerController {
     private TableColumn<Ledger, String> colAkun;
 
     @FXML
-    private TableColumn<Ledger, Double> colDebit;
+    private TableColumn<Ledger, String> colDebit;
 
     @FXML
-    private TableColumn<Ledger, Double> colKredit;
+    private TableColumn<Ledger, String> colKredit;
 
     @FXML
     private TableColumn<Ledger, String> colKeterangan;
@@ -43,109 +47,195 @@ public class LedgerController {
     @FXML
     private TextField txtCari;
 
-    @FXML
-    public void initialize() {
+    private void loadLedger() {
 
-        System.out.println("LEDGER BERHASIL DILOAD");
-
-        colTanggal.setCellValueFactory(
-                new PropertyValueFactory<>("tanggal"));
-
-        colAkun.setCellValueFactory(
-                new PropertyValueFactory<>("akun"));
-
-        colDebit.setCellValueFactory(
-                new PropertyValueFactory<>("debit"));
-
-        colKredit.setCellValueFactory(
-                new PropertyValueFactory<>("kredit"));
-
-        colKeterangan.setCellValueFactory(
-                new PropertyValueFactory<>("keterangan"));
+        LedgerService service =
+                new LedgerService();
 
         ObservableList<Ledger> data =
-                FXCollections.observableArrayList();
-
-        data.add(
-                new Ledger(
-                        "2026-06-20",
-                        "Kas",
-                        50000.0,
-                        0.0,
-                        "Setoran"
-                )
-        );
-
-        data.add(
-                new Ledger(
-                        "2026-06-20",
-                        "Bank",
-                        0.0,
-                        50000.0,
-                        "Transfer"
-                )
-        );
+                FXCollections.observableArrayList(
+                        service.getAllLedger()
+                );
 
         tableLedger.setItems(data);
 
+        double totalDebit =
+                data.stream()
+                        .mapToDouble(Ledger::getDebit)
+                        .sum();
+
+        double totalKredit =
+                data.stream()
+                        .mapToDouble(Ledger::getKredit)
+                        .sum();
+
+        NumberFormat rupiah =
+                NumberFormat.getInstance(
+                        new Locale("id", "ID")
+                );
+
         lblTotalDebit.setText(
-                "💰 Total Debit : Rp 50.000"
+                "💰 Total Debit : Rp "
+                        + rupiah.format(totalDebit)
         );
 
         lblTotalKredit.setText(
-                "💳 Total Kredit : Rp 50.000"
+                "💳 Total Kredit : Rp "
+                        + rupiah.format(totalKredit)
         );
 
+        tableLedger.refresh();
+
         System.out.println(
-                "Jumlah Data : " + data.size()
+                "Jumlah Data : "
+                        + data.size()
         );
+    }
+
+    @FXML
+    public void initialize() {
+
+        System.out.println(
+                "LEDGER BERHASIL DILOAD"
+        );
+
+        NumberFormat rupiah =
+                NumberFormat.getInstance(
+                        new Locale("id", "ID")
+                );
+
+        colTanggal.setCellValueFactory(
+                c -> new SimpleStringProperty(
+                        c.getValue().getTanggal()
+                )
+        );
+
+        colAkun.setCellValueFactory(
+                c -> new SimpleStringProperty(
+                        c.getValue().getAkun()
+                )
+        );
+
+        colDebit.setCellValueFactory(
+                c -> new SimpleStringProperty(
+                        "Rp "
+                                + rupiah.format(
+                                c.getValue().getDebit()
+                        )
+                )
+        );
+
+        colKredit.setCellValueFactory(
+                c -> new SimpleStringProperty(
+                        "Rp "
+                                + rupiah.format(
+                                c.getValue().getKredit()
+                        )
+                )
+        );
+
+        colKeterangan.setCellValueFactory(
+                c -> new SimpleStringProperty(
+                        c.getValue().getKeterangan()
+                )
+        );
+
+        tableLedger.setColumnResizePolicy(
+                TableView.CONSTRAINED_RESIZE_POLICY
+        );
+
+        loadLedger();
     }
 
     @FXML
     public void refreshData() {
 
-        Thread thread =
-                new Thread(() -> {
+        loadLedger();
 
-                    try {
-
-                        Thread.sleep(3000);
-
-                        System.out.println(
-                                "Data berhasil diperbarui"
-                        );
-
-                    } catch (Exception e) {
-
-                        e.printStackTrace();
-                    }
-                });
-
-        thread.start();
+        System.out.println(
+                "Data berhasil diperbarui"
+        );
     }
 
     @FXML
     public void exportCsv() {
 
-        Alert alert =
-                new Alert(
-                        Alert.AlertType.INFORMATION
+        try {
+
+            javafx.stage.FileChooser fileChooser =
+                    new javafx.stage.FileChooser();
+
+            fileChooser.setTitle(
+                    "Simpan File CSV"
+            );
+
+            fileChooser.setInitialFileName(
+                    "ledger.csv"
+            );
+
+            java.io.File file =
+                    fileChooser.showSaveDialog(
+                            tableLedger.getScene()
+                                    .getWindow()
+                    );
+
+            if (file == null) {
+                return;
+            }
+
+            java.io.PrintWriter writer =
+                    new java.io.PrintWriter(file);
+
+            writer.println(
+                    "Tanggal,Akun,Debit,Kredit,Keterangan"
+            );
+
+            for (Ledger ledger :
+                    tableLedger.getItems()) {
+
+                writer.println(
+                        ledger.getTanggal() + "," +
+                                ledger.getAkun() + "," +
+                                ledger.getDebit() + "," +
+                                ledger.getKredit() + "," +
+                                ledger.getKeterangan()
                 );
+            }
 
-        alert.setTitle(
-                "Export"
-        );
+            writer.close();
 
-        alert.setHeaderText(
-                "Export Berhasil"
-        );
+            Alert alert =
+                    new Alert(
+                            Alert.AlertType.INFORMATION
+                    );
 
-        alert.setContentText(
-                "Data Ledger berhasil diexport."
-        );
+            alert.setTitle("Export CSV");
+            alert.setHeaderText("Berhasil");
+            alert.setContentText(
+                    "File CSV berhasil disimpan."
+            );
 
-        alert.showAndWait();
+            alert.showAndWait();
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+            Alert alert =
+                    new Alert(
+                            Alert.AlertType.ERROR
+                    );
+
+            alert.setTitle("Export CSV");
+            alert.setHeaderText("Gagal");
+            alert.setContentText(
+                    e.getMessage()
+            );
+
+            alert.showAndWait();
+        }
     }
+
     @FXML
     public void cariData() {
 
@@ -156,6 +246,7 @@ public class LedgerController {
                 "Mencari : " + keyword
         );
     }
+
     @FXML
     public void kembaliDashboard() {
 

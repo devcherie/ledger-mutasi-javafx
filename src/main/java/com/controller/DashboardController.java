@@ -5,12 +5,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import javafx.scene.control.Button;
 import javafx.scene.control.Alert;
 
 public class DashboardController {
 
+
     @FXML
-    private Label lblJam;
+    private Button btnMutasi;
 
     @FXML
     private Label lblJumlahAkun;
@@ -32,35 +34,6 @@ public class DashboardController {
         lblJumlahMutasi.setText("25");
         lblTotalDebit.setText("Rp 500.000");
         lblTotalKredit.setText("Rp 500.000");
-
-        Thread jamThread = new Thread(() -> {
-
-            try {
-
-                while (true) {
-
-                    String waktu =
-                            java.time.LocalTime.now()
-                                    .withNano(0)
-                                    .toString();
-
-                    javafx.application.Platform.runLater(() ->
-                            lblJam.setText("🕒 " + waktu)
-                    );
-
-                    Thread.sleep(1000);
-
-                }
-
-            } catch (Exception e) {
-
-                e.printStackTrace();
-            }
-        });
-
-        jamThread.setDaemon(true);
-        jamThread.start();
-
     }
 
     @FXML
@@ -118,6 +91,34 @@ public class DashboardController {
 
             stage.setScene(scene);
             stage.setTitle("Data Ledger");
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void bukaDataMutasi() {
+
+        try {
+
+            FXMLLoader loader =
+                    new FXMLLoader(
+                            getClass().getResource(
+                                    "/mutasi-data.fxml"
+                            )
+                    );
+
+            Scene scene =
+                    new Scene(loader.load());
+
+            Stage stage =
+                    (Stage) lblJumlahAkun
+                            .getScene()
+                            .getWindow();
+
+            stage.setScene(scene);
 
         } catch (Exception e) {
 

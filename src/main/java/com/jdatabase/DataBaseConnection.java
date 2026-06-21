@@ -12,19 +12,30 @@ public class DataBaseConnection {
             "root";
 
     private static final String PASSWORD =
-            "";
+            "angel879_";
 
     public static Connection getConnection() {
 
         try {
 
-            return DriverManager.getConnection(
-                    URL,
-                    USER,
-                    PASSWORD
+            Connection conn =
+                    DriverManager.getConnection(
+                            URL,
+                            USER,
+                            PASSWORD
+                    );
+
+            System.out.println(
+                    "KONEKSI BERHASIL"
             );
 
+            return conn;
+
         } catch (Exception e) {
+
+            System.out.println(
+                    "KONEKSI GAGAL"
+            );
 
             e.printStackTrace();
 

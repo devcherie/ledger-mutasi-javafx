@@ -8,6 +8,9 @@ public class Ledger {
     private Double kredit;
     private String keterangan;
 
+    public Ledger() {
+    }
+
     public Ledger(
             String tanggal,
             String akun,
@@ -26,19 +29,39 @@ public class Ledger {
         return tanggal;
     }
 
+    public void setTanggal(String tanggal) {
+        this.tanggal = tanggal;
+    }
+
     public String getAkun() {
         return akun;
+    }
+
+    public void setAkun(String akun) {
+        this.akun = akun;
     }
 
     public Double getDebit() {
         return debit;
     }
 
+    public void setDebit(Double debit) {
+        this.debit = debit;
+    }
+
     public Double getKredit() {
         return kredit;
     }
 
+    public void setKredit(Double kredit) {
+        this.kredit = kredit;
+    }
+
     public String getKeterangan() {
         return keterangan;
+    }
+
+    public void setKeterangan(String keterangan) {
+        this.keterangan = keterangan;
     }
 }
