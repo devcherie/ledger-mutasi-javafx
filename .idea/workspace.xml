@@ -22,6 +22,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -60,6 +63,7 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/INTAN/IdeaProjects/JavaFX",
@@ -78,6 +82,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\INTAN\IdeaProjects\JavaFX" />
       <recent name="C:\Users\INTAN\IdeaProjects\JavaFX\src\main\resources" />
       <recent name="C:\Users\INTAN\IdeaProjects\JavaFX\target" />
       <recent name="C:\Users\INTAN\IdeaProjects\JavaFX\src" />
@@ -201,12 +206,23 @@
       <workItem from="1781000782315" duration="676000" />
       <workItem from="1781001824630" duration="4916000" />
       <workItem from="1781448153842" duration="315000" />
-      <workItem from="1781950765376" duration="11871000" />
+      <workItem from="1781950765376" duration="18617000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
