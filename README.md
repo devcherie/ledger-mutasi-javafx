@@ -69,12 +69,14 @@ src
     │       │   ├── LoginController.java
     │       │   ├── DashboardController.java
     │       │   ├── MutasiController.java
-    │       │   └── LedgerController.java
+    │       │   ├── LedgerController.java
+    │       │   └── MutasiDataController.java
     │       │
     │       ├── model
     │       │   ├── User.java
     │       │   ├── Akun.java
     │       │   ├── Mutasi.java
+    │       │   ├── MutasiView.java
     │       │   ├── Ledger.java
     │       │   └── DetailLedger.java
     │       │
@@ -92,7 +94,8 @@ src
         ├── login.fxml
         ├── dashboard.fxml
         ├── mutasi.fxml
-        └── ledger.fxml
+        ├── ledger.fxml
+        └── mutasi-data.fxml
 ```
 
 ## Teknologi yang Digunakan
